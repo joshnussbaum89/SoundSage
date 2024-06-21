@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom classes */
+@layer components {
+  /* .site-transition-normal {
+    @apply transition duration-200 ease-in-out;
+  } */
+}
+
+/* General */
+
+html {
+  font-family: var(--sl-font-sans);
+}
+
+body {
+  @apply p-4;
+}
+
+/* Typography */
