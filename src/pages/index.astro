@@ -1,29 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getSession } from 'auth-astro/server'
-
-const session = await getSession(Astro.request)
-
-// TODO: remove session log
-console.log('session: ', session)
 ---
 
 <Layout title="SoundSage">
-  <header class="flex flex-col gap-4 mb-4">
-    <h1 class="text-3xl">SoundSage</h1>
-    {session ? <p>Welcome, {session.user?.name} 🎶</p> : <p>Not logged in</p>}
-  </header>
-  <main>
-    <sl-button id="login">Login</sl-button>
-    <sl-button id="logout">Logout</sl-button>
-  </main>
+  <div slot="header-info" class="header-info">
+    <h1>Home</h1>
+    <p>Welcome to your practice dungeon. We're here to make you better.</p>
+  </div>
 </Layout>
-
-<script>
-  const { signIn, signOut } = await import('auth-astro/client')
-  const loginButton = document.querySelector('#login')
-  const logoutButton = document.querySelector('#logout')
-
-  loginButton?.addEventListener('click', () => signIn('google'))
-  logoutButton?.addEventListener('click', () => signOut())
-</script>

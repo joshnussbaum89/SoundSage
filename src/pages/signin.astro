@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const { cookies, redirect } = Astro
+
+const accessToken = cookies.get('sb-access-token')
+const refreshToken = cookies.get('sb-refresh-token')
+
+if (accessToken && refreshToken) {
+  return redirect('/dashboard')
+}
+---
+
+<Layout title="Sign in">
+  <div slot="header-info" class="header-info">
+    <h1>Sign in</h1>
+    <p>New here? <a href="/register">Create an account</a></p>
+    <form action="/api/auth/signin" method="post" class="w-full flex flex-col gap-4">
+      <sl-input type="email" name="email" id="email" label="Email" required></sl-input>
+      <sl-input type="password" name="password" id="password" label="Password" required></sl-input>
+      <sl-button type="submit">Login</sl-button>
+    </form>
+  </div>
+</Layout>

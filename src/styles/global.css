@@ -11,12 +11,72 @@
 
 /* General */
 
+:root {
+  /* fonts */
+  --font-sixty-four: 'Sixtyfour', sans-serif;
+}
+
 html {
   font-family: var(--sl-font-sans);
 }
 
-body {
+nav {
+  border-bottom: 1px solid var(--sl-color-neutral-50);
+}
+
+section {
+  @apply flex items-center justify-center flex-col gap-4 w-full m-auto py-16;
+}
+
+nav,
+section {
   @apply p-4;
 }
 
+form {
+  @apply w-full max-w-xl flex flex-col gap-4 text-start;
+}
+
+.header-info {
+  @apply gap-4 w-full max-w-xl flex flex-col justify-center items-center m-auto py-16 px-4 text-center;
+}
+
 /* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold my-4 text-balance;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+p {
+  @apply text-pretty;
+}
+
+a {
+  color: var(--sl-color-primary-500);
+  @apply transition;
+}
+
+a:hover {
+  color: var(--sl-color-primary-600);
+}
+
+.sixtyfour-font {
+  font-family: var(--font-sixty-four);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'BLED' 0, 'SCAN' 0;
+}
