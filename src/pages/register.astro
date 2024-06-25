@@ -15,10 +15,17 @@ if (accessToken && refreshToken) {
   <div slot="header-info" class="header-info">
     <h1>Register</h1>
     <p>Already have an account? <a href="/signin">Sign in</a></p>
+
+    <!-- Credentials -->
     <form action="/api/auth/register" method="post" class="w-full flex flex-col gap-4">
       <sl-input type="email" name="email" id="email" label="Email" required></sl-input>
       <sl-input type="password" name="password" id="password" label="Password" required></sl-input>
-      <sl-button type="submit">Register</sl-button>
+      <sl-button type="submit" variant="primary">Register</sl-button>
+    </form>
+
+    <!-- OAuth -->
+    <form action="/api/auth/signin" method="post">
+      <sl-button value="google" name="provider" type="submit">Register with Google</sl-button>
     </form>
   </div>
 </Layout>
