@@ -1,0 +1,38 @@
+---
+export interface Props {
+  authType: 'login' | 'register'
+}
+
+const authCopy = {
+  login: {
+    credentialsButtonTitle: 'Login',
+    formAction: '/api/auth/signin',
+    oauthButtonTitle: 'Sign in with Google',
+  },
+  register: {
+    credentialsButtonTitle: 'Register',
+    formAction: '/api/auth/register',
+    oauthButtonTitle: 'Register with Google',
+  },
+}
+
+const { authType } = Astro.props
+---
+
+<!-- Credentials -->
+<form
+  action={authCopy[authType].formAction}
+  method="post"
+  class="w-full max-w-xl flex flex-col gap-4 text-start"
+>
+  <sl-input type="email" name="email" id="email" label="Email" required></sl-input>
+  <sl-input type="password" name="password" id="password" label="Password" required></sl-input>
+  <sl-button type="submit" variant="primary">{authCopy[authType].credentialsButtonTitle}</sl-button>
+</form>
+
+<!-- OAuth -->
+<form action="/api/auth/signin" method="post" class="w-full max-w-xl">
+  <sl-button value="google" name="provider" type="submit" style="width: 100%;"
+    >{authCopy[authType].oauthButtonTitle}</sl-button
+  >
+</form>

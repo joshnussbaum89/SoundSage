@@ -33,10 +33,6 @@ section {
   @apply p-4;
 }
 
-form {
-  @apply w-full max-w-xl flex flex-col gap-4 text-start;
-}
-
 .header-info {
   @apply gap-4 w-full max-w-xl flex flex-col justify-center items-center m-auto py-16 px-4 text-center;
 }
